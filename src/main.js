@@ -3,6 +3,8 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import Element from 'element-ui';
+Vue.use(Element, { size: 'small', zIndex: 3000 });
 
 Vue.config.productionTip = false
 
