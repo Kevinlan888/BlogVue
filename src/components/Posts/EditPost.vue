@@ -5,55 +5,54 @@
         <el-row>
           <el-col :span="12">
             <div class="grid-content bg-purple postinline">
-              <span>标题: </span>
-              <el-input class="postinput" placeholder="请输入标题" v-model="postdata.title" clearable></el-input>
+              <span>标题:</span>
+              <el-input class="postinput" placeholder="请输入标题" v-model="title" clearable></el-input>
             </div>
           </el-col>
           <el-col :span="12">
-            <div class="grid-content bg-purple-light postinline">Slug: 
-              <el-input class="postinput" placeholder="请输入Slug" :readonly="true" v-model="postdata.slug" clearable></el-input>
+            <div class="grid-content bg-purple-light postinline">
+              Slug:
+              <el-input class="postinput" placeholder="请输入Slug" v-model="slug" clearable></el-input>
             </div>
           </el-col>
         </el-row>
       </div>
-      <div class="textareawrapper">
-        <span>内容:</span>
-        <el-input type="textarea" class="textareainput" :rows="30" placeholder="请输入内容" v-model="postdata.text"></el-input>
-      </div>
     </div>
     <div class="displayarea">
-      <vue-markdown :source="postdata.text" :linkify="false" :toc="true"></vue-markdown>
+      <MarkdownPro v-model="text" />
     </div>
+
+    <el-button class="btnConfirm" v-on:click="Confirm">确定</el-button>
   </div>
 </template>
 
 <script>
-import VueMarkdown from "vue-markdown";
+import { MarkdownPro } from "vue-meditor";
+const Request = require("@/utils/HttpUtil");
 export default {
   name: "EditPost",
   components: {
-    VueMarkdown
+    MarkdownPro
   },
-  created: function() {
-    console.log(this.$route.params.slug)
-    this.postdata.slug = this.$route.params.slug
+  created: async function() {
+    await this.GetPost();
   },
-  data: function(val) {
+  data: function() {
     return {
-      postdata: {
       title: "",
       slug: "",
       text: "# haha"
-      }
-    }
+    };
   },
   watch: {
-    title: function(val) {
-      this.slug = this.slugify(val);
-    }
+    title: function(newVal) {
+      console.log(newVal);
+      this.slug = this.slugify(newVal);
+    },
+    $route: "GetPost"
   },
   methods: {
-    slugify(text, ampersand = "and") {
+    slugify: function(text, ampersand = "and") {
       const a = "àáäâèéëêìíïîòóöôùúüûñçßÿỳýœæŕśńṕẃǵǹḿǘẍźḧ";
       const b = "aaaaeeeeiiiioooouuuuncsyyyoarsnpwgnmuxzh";
       const p = new RegExp(a.split("").join("|"), "g");
@@ -67,30 +66,47 @@ export default {
         .replace(/[^\w-]+/g, "")
         .replace(/--+/g, "-")
         .replace(/^-+|-+$/g, "");
+    },
+    ClearInput: function() {
+      this.title = "";
+      this.slug = "";
+      this.text = "";
+    },
+    GetPost: async function() {
+      this.ClearInput();
+      var slug = this.$route.params.slug;
+      if (slug) {
+        var post = await Request.GetPost(slug);
+        if (post) {
+          this.title = post.title;
+          this.slug = post.slug;
+          this.text = post.markDown;
+        }
+      }
+    },
+    Confirm: function() {
+      var postData = {
+        title: this.title,
+        slug: this.slug,
+        text: this.text
+      };
     }
   }
 };
 </script>
 
 <style>
-.postinfo{
+.postinfo {
   width: 750px;
 }
-.postinline{
+.postinline {
   display: inline;
 }
-.postinput{
+.postinput {
   width: 300px;
 }
-.textareawrapper{
-  margin-top: 20px;
-}
-.textareainput {
-  width: 100%;
-  min-width: 900px;
-  margin-top: 6px;
-}
 .displayarea {
+  margin-top: 30px;
   font-family: "Microsoft YaHei", Helvetica, "Meiryo UI", "Malgun Gothic",
     "Segoe UI", "Trebuchet MS", Monaco, monospace, Tahoma, STXihei, "华文细黑",
     STHeiti, "Helvetica Neue", "Droid Sans", "wenquanyi micro hei", FreeSans,
