@@ -19,7 +19,7 @@
       </div>
     </div>
     <div class="displayarea">
-      <MarkdownPro v-model="text" />
+      <MarkdownPro v-model="markdown" />
     </div>
 
     <el-button class="btnConfirm" v-on:click="Confirm">确定</el-button>
@@ -39,14 +39,16 @@ export default {
   },
   data: function() {
     return {
+      postId: null,
       title: "",
       slug: "",
-      text: "# haha"
+      markdown: "# haha",
+      content: "",
+      tags: ''
     };
   },
   watch: {
     title: function(newVal) {
-      console.log(newVal);
       this.slug = this.slugify(newVal);
     },
     $route: "GetPost"
@@ -68,9 +70,12 @@ export default {
         .replace(/^-+|-+$/g, "");
     },
     ClearInput: function() {
+      this.postId = null;
       this.title = "";
       this.slug = "";
-      this.text = "";
+      this.markdown = "";
+      this.content = "";
+      this.tags = "";
     },
     GetPost: async function() {
       this.ClearInput();
@@ -78,18 +83,27 @@ export default {
       if (slug) {
         var post = await Request.GetPost(slug);
         if (post) {
+          console.log(post);
+          this.postId = post.postId;
           this.title = post.title;
           this.slug = post.slug;
-          this.text = post.markDown;
+          this.markdown = post.markDown;
+          this.content = post.content;
+          this.tags = post.tags;
         }
       }
     },
-    Confirm: function() {
+    Confirm: async function() {
       var postData = {
+        postId: this.postId,
         title: this.title,
         slug: this.slug,
-        text: this.text
+        markDown: this.markdown,
+        content: this.content,
+        tags: this.tags
       };
+      var ret = await Request.AddOrUpdatePost(postData);
+      console.log(ret);
     }
   }
 };

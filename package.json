@@ -24,6 +24,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^7.2.6",
+    "axios": "^0.19.2",
     "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.6",
     "babel-helper-vue-jsx-merge-props": "^2.0.3",
@@ -71,6 +72,7 @@
     "url-loader": "^0.5.9",
     "vue-jest": "^1.4.0",
     "vue-loader": "^15.8.3",
+    "vue-resource": "^1.5.1",
     "vue-style-loader": "^4.1.2",
     "vue-template-compiler": "^2.6.11",
     "webpack": "^4.41.5",
