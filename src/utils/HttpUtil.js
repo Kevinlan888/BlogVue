@@ -1,5 +1,5 @@
-const LoginUrl = "http://localhost:61468/api/users/login";
-const GetPostUrl = "http://localhost:61468/api/posts/get";
+const LoginUrl = "/api/users/login";
+const GetPostUrl = "/api/posts/get";
 
 const BuildAuthHeaders = (token) => {
     return {
