@@ -17,16 +17,19 @@ axios.interceptors.request.use(function (config) {
   if (window.localStorage.getItem('token')) {
     config.headers.Authorization = 'Bearer ' + window.localStorage.getItem('token');
   }
-  console.log(config);
   return config;
 })
 
-axios.interceptors.response.use(function (config) {
-  console.log(config);
-  if (config.status == 401) {
-    router.go({name: 'Logon'});
+axios.interceptors.response.use((response) => {
+  return response;
+}, error => {
+  if (error.response) {
+    if (error.response.status == 401) {
+      console.log("401");
+      store.commit('unset_User');
+        router.push({ name: 'Login' });
+    }
   }
-  return config;
 })
 
 /* eslint-disable no-new */

@@ -8,19 +8,28 @@
 <script>
 import { HubConnectionBuilder, LogLevel } from '@aspnet/signalr'
 import { mapMutations } from 'vuex'
+import { Message } from 'element-ui';
 export default {
   name: 'App',
   created: function(){
     const connection = new HubConnectionBuilder().withUrl("/chathub").configureLogging(LogLevel.Information).build();
     connection.on("News", function(user, message){
         console.log("News from %s:  %s", user, message);
-        
+        Message({
+          showClose: true,
+          message: message,
+          type: 'success'
+        });
     });
     connection.start();
+    console.log("refresh");
     var token = localStorage.getItem('token');
     var name = localStorage.getItem('name');
     if (token) {
-      this.set_User({token: token, name: name?name:""});
+      this.$store.state.user = {
+        token: token,
+        name: name
+      }
     }
   },
   methods: {

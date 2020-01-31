@@ -13,7 +13,6 @@ export default {
     MarkdownPro
   },
   created: function() {
-    console.log("666");
     this.GetPost();
   },
   data: function() {

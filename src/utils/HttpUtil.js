@@ -5,13 +5,6 @@ const AddPostUrl = "http://localhost:61468/api/posts/AddPost"; ///api/posts/AddO
 import axios from 'axios'
 import store from '@/store'
 
-const BuildAuthHeaders = (token) => {
-    return {
-        'content-type': 'application/json',
-        'Authorization': 'Bearer ' + token
-    };
-}
-
 export const Login = async (userName, password) => {
     return await axios.post(LoginUrl, {
         UserName: userName,

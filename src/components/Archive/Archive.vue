@@ -1,7 +1,9 @@
 <template>
   <div>
     <ul>
-      
+      <li class="postList" v-for="desc in postData" :key="desc.postId" v-on:click="titleClick(desc.slug)">
+        {{ desc.title }}
+      </li>
     </ul>
   </div>
 </template>
@@ -11,15 +13,30 @@ const Request = require("@/utils/HttpUtil");
 export default {
   name: "Archive",
   created: async function () {
-    var jObj = await Request.GetAllPostDescs();
-    console.log(jObj);
+    this.postData = await Request.GetAllPostDescs();
   },
-  data: function() {
-    return {};
+  data() {
+    return {
+      postData: []
+    };
   },
-  methods: {}
+  methods: {
+    titleClick(slug) {
+      console.log("click " + slug);
+      this.$router.push('/view/' + slug);
+    }
+  }
 };
 </script>
 
 <style>
+.postList {
+  list-style-type: none;
+  margin-bottom: 20px;
+}
+.postList:hover {
+  cursor: default;
+  text-decoration: underline;
+  color: blue;
+}
 </style>

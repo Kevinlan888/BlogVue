@@ -45,6 +45,7 @@ export default {
         if (ret.result) {
           this.set_User({token: ret.msg, name: ''});
           alert("Login successful");
+          this.$router.push({name: 'Home'});
         } else {
             alert("Login failed");
         }
