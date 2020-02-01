@@ -59,16 +59,16 @@ const router = new Router({
           meta: {
             title: "Archive"
           }
-        },
-        {
-          path: 'Login',
-          name: 'Login',
-          component: Login,
-          meta: {
-            title: "Login"
-          }
-        },
+        }
       ]
+    },
+    {
+      path: '/Login',
+      name: 'Login',
+      component: Login,
+      meta: {
+        title: "Login"
+      }
     },
     {
       path: '*',
