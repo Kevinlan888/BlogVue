@@ -33,7 +33,7 @@
       </div>
       <div class="footer">
         <div class="links">
-          <a href="/home">Back to home</a>
+          <router-link to="/home">Back to home</router-link>
         </div>
       </div>
     </div>
@@ -95,7 +95,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .wrapper {
   display: flex;
   justify-content: center;

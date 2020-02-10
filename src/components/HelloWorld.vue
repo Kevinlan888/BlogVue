@@ -1,113 +1,105 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li>
-        <a
-          href="https://vuejs.org"
-          target="_blank"
-        >
-          Core Docs
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://forum.vuejs.org"
-          target="_blank"
-        >
-          Forum
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://chat.vuejs.org"
-          target="_blank"
-        >
-          Community Chat
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://twitter.com/vuejs"
-          target="_blank"
-        >
-          Twitter
-        </a>
-      </li>
-      <br>
-      <li>
-        <a
-          href="http://vuejs-templates.github.io/webpack/"
-          target="_blank"
-        >
-          Docs for This Template
-        </a>
-      </li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li>
-        <a
-          href="http://router.vuejs.org/"
-          target="_blank"
-        >
-          vue-router
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://vuex.vuejs.org/"
-          target="_blank"
-        >
-          vuex
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://vue-loader.vuejs.org/"
-          target="_blank"
-        >
-          vue-loader
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/awesome-vue"
-          target="_blank"
-        >
-          awesome-vue
-        </a>
-      </li>
-    </ul>
+  <div class="wrapper">
+    <div class="homeimg">
+      <div class="center">
+        <h1 class="titlemain">Kevin Lan</h1>
+        <h3
+          class="selfdescription"
+        >This is some test random words, used to describe myself, just for fun, welcome you to my personal site, hahah</h3>
+      </div>
+    </div>
+    <div class="recentact">
+      <div class="container">
+        <h2 class="worktitle">My work</h2>
+        <div class="content">
+          <h3 class="contentdescription">this is some random works I'm gonna explain, listen up!!!</h3>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="container">
+        <p class="footersaying">Last, but not least</p>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld',
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
-    }
+  name: "HelloWorld",
+  data() {
+    return {};
   }
-}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1, h2 {
-  font-weight: normal;
+.homeimg {
+  height: 100vh;
+  background: url("/static/login_bg.svg") no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: 50%;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
 }
-li {
-  display: inline-block;
-  margin: 0 10px;
+.titlemain {
+  font-size: 5rem;
+  letter-spacing: 20px;
+  font-weight: 500;
+  line-height: 1.1;
+  font-family: "Lobster-Regular";
+  color: #fff;
 }
-a {
-  color: #42b983;
+.selfdescription {
+  font-size: 16px;
+  line-height: 1.1;
+  font-weight: 500;
+  font-size: 1.75rem;
+  font-family: "DancingScript-Regular";
+  color: #fff;
+}
+.recentact {
+  background: #191919;
+}
+.container {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.worktitle {
+  font-family: 'Lobster-Regular';
+  font-weight: 500;
+  color: #fff; 
+}
+.contentdescription {
+  color: #fff;
+  height: 500px;;
+}
+.footer {
+  background: #282828;
+}
+.footersaying {
+  text-align: center;
+  font-family: 'Lobster-Regular';
+  font-size: 1.75rem;
+  color: #fff;
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    max-width: 962px;
+  }
 }
 </style>

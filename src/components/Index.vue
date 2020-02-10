@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div class="header">
+    <nav class="header">
       <Header />
-    </div>
+    </nav>
     <div>
       <router-view></router-view>
     </div>
@@ -19,8 +19,15 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .header{
-  margin-bottom: 50px;
+  height: 120px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: .5rem 1rem;
+  transition: height .5s, line-height .5s;
 }
 </style>

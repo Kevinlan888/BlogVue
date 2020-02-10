@@ -29,7 +29,10 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+.navbrand {
+  color: #000;
+}
 .postList {
   list-style-type: none;
   margin-bottom: 20px;
