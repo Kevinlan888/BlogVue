@@ -1,10 +1,12 @@
 <template>
-  <div>
-    <ul>
+  <div class="wrapper">
+    <div>
+      <ul>
       <li class="postList" v-for="desc in postData" :key="desc.postId" v-on:click="titleClick(desc.slug)">
         {{ desc.title }}
       </li>
     </ul>
+    </div>
   </div>
 </template>
 
@@ -30,6 +32,9 @@ export default {
 </script>
 
 <style scoped>
+.wrapper {
+  padding: 136px;
+}
 .navbrand {
   color: #000;
 }

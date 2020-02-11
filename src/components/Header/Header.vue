@@ -9,11 +9,11 @@
     <router-link to="/Home" class="navbrand" :class="navcolorName">Kevin Lan</router-link>
     <div class="navcontent">
       <ul class="navbar-nav nav-automar">
-        <li><router-link :class="navcolorName" to="/">Recent</router-link></li>
+        <li><router-link :class="navcolorName" to="/Recent">Recent</router-link></li>
         <li><router-link :class="navcolorName" to="/Archive">Archive</router-link></li>
       </ul>
       <ul class="navbar-nav">
-        <li><router-link :class="navcolorName" to="/">About</router-link></li>
+        <li><router-link :class="navcolorName" to="/About">About</router-link></li>
       </ul>
     </div>
   </div>
@@ -38,7 +38,7 @@ export default {
   },
   methods: {
     changeStyle(to) {
-      if (to.name === 'Archive') {
+      if (to.name !== 'Home') {
           this.navcolorName = 'navcolorblack';
       } else {
         this.navcolorName = 'navcolorwhite';
@@ -92,16 +92,5 @@ export default {
 }
 .navcolorblack {
   color:#000;
-}
-
-@media (min-width: 1200px) {
-  .container {
-    max-width: 1140px;
-  }
-}
-@media (min-width: 992px) {
-  .container {
-    max-width: 962px;
-  }
 }
 </style>

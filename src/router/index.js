@@ -8,6 +8,8 @@ import PostView from '@/components/Posts/PostView'
 import Archive from '@/components/Archive/Archive'
 import Login from '@/components/Login/Login'
 import NotFound from '@/components/ErrorPage/NotFound'
+import About from '@/components/About/About'
+import Recent from '@/components/Recent/Recent'
 
 Vue.use(Router)
 
@@ -58,6 +60,22 @@ const router = new Router({
           component: Archive,
           meta: {
             title: "Archive"
+          }
+        },
+        {
+          path: 'About',
+          name: 'About',
+          component: About,
+          meta: {
+            title: "About me"
+          }
+        },
+        {
+          path: 'Recent',
+          name: 'Recent',
+          component: Recent,
+          meta: {
+            title: 'Recent'
           }
         }
       ]

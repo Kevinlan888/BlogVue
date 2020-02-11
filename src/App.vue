@@ -68,4 +68,21 @@ body {
 .routeview {
   text-align: left;
 }
+.container {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    max-width: 962px;
+  }
+}
 </style>

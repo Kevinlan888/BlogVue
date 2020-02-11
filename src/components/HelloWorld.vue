@@ -16,11 +16,6 @@
         </div>
       </div>
     </div>
-    <div class="footer">
-      <div class="container">
-        <p class="footersaying">Last, but not least</p>
-      </div>
-    </div>
   </div>
 </template>
 
@@ -67,12 +62,6 @@ export default {
 .recentact {
   background: #191919;
 }
-.container {
-  padding-top: 40px;
-  padding-bottom: 40px;
-  margin-left: auto;
-  margin-right: auto;
-}
 .worktitle {
   font-family: 'Lobster-Regular';
   font-weight: 500;
@@ -81,25 +70,5 @@ export default {
 .contentdescription {
   color: #fff;
   height: 500px;;
-}
-.footer {
-  background: #282828;
-}
-.footersaying {
-  text-align: center;
-  font-family: 'Lobster-Regular';
-  font-size: 1.75rem;
-  color: #fff;
-}
-
-@media (min-width: 1200px) {
-  .container {
-    max-width: 1140px;
-  }
-}
-@media (min-width: 992px) {
-  .container {
-    max-width: 962px;
-  }
 }
 </style>
