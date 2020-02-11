@@ -62,6 +62,10 @@ export default {
 .recentact {
   background: #191919;
 }
+.recentact .container {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
 .worktitle {
   font-family: 'Lobster-Regular';
   font-weight: 500;

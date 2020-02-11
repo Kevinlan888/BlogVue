@@ -54,7 +54,7 @@ export default {
   font-family: "DancingScript-Regular";
   src: url("/static/fonts/DancingScript-Regular.ttf");
 }
-body {
+* {
   margin: 0;
   padding: 0;
 }
@@ -69,10 +69,11 @@ body {
   text-align: left;
 }
 .container {
-  padding-top: 40px;
-  padding-bottom: 40px;
+  padding-left: 15px;
+  padding-right: 15px;
   margin-left: auto;
   margin-right: auto;
+  width: 100%;
 }
 
 @media (min-width: 1200px) {

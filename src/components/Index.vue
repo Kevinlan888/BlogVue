@@ -1,7 +1,24 @@
 <template>
   <div>
-    <nav class="header">
-      <Header />
+    <nav class="header nav-expand" :class="scrollCls">
+      <div class="headerbox container">
+        <router-link to="/Home" class="navbrand" :class="changeClrCls">Kevin Lan</router-link>
+        <div class="navcontent">
+          <ul class="navbar-nav nav-automar">
+            <li>
+              <router-link :class="changeClrCls" to="/Recent">Recent</router-link>
+            </li>
+            <li>
+              <router-link :class="changeClrCls" to="/Archive">Archive</router-link>
+            </li>
+          </ul>
+          <ul class="navbar-nav">
+            <li>
+              <router-link :class="changeClrCls" to="/About">About</router-link>
+            </li>
+          </ul>
+        </div>
+      </div>
     </nav>
     <router-view class="routerview"></router-view>
     <div class="footer">
@@ -13,11 +30,41 @@
 </template>
 
 <script>
-import Header from "@/components/Header/Header";
 export default {
   name: "Index",
-  components: {
-    Header
+  mounted() {
+    this.changeStyle(this.$route);
+    document.addEventListener("scroll", this.scroll);
+  },
+  destroyed() {
+    document.removeEventListener("scroll");
+  },
+  watch: {
+    $route: function(route) {
+      this.changeStyle(route);
+    }
+  },
+  data() {
+    return {
+      changeClrCls: "navcolorblack",
+      scrollCls: ""
+    };
+  },
+  methods: {
+    changeStyle(to) {
+      if (to.name === "Home") {
+        this.changeClrCls = "navcolorwhite";
+      } else {
+        this.changeClrCls = "navcolorblack";
+      }
+    },
+    scroll(e) {
+      if (window.scrollY >= 100) {
+        this.scrollCls = "headerscroll";
+      } else {
+        this.scrollCls = "";
+      }
+    }
   }
 };
 </script>
@@ -33,6 +80,63 @@ export default {
   padding: 0.5rem 1rem;
   transition: height 0.5s, line-height 0.5s;
 }
+.nav-expand {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+}
+.headerscroll {
+  height: 60px;
+  background: #fff;
+}
+.headerscroll a {
+  color: #000 !important;
+}
+.headerbox {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+.navbrand {
+  display: inline-block;
+  font-size: 1.75rem;
+  margin-right: 1rem;
+  white-space: nowrap;
+  text-decoration: none;
+  color: #fff;
+  font-family: "Lobster-Regular";
+}
+.navcontent {
+  display: flex;
+  align-items: center;
+  flex-basis: 100%;
+}
+.navbar-nav {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+}
+.navbar-nav li {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.navbar-nav li a {
+  text-decoration: none;
+  font-family: "Lobster-Regular";
+  font-size: 1.2rem;
+  color: #fff;
+}
+.nav-automar {
+  margin-right: auto !important;
+}
+.navcolorwhite {
+  color: #fff !important;
+}
+.navcolorblack {
+  color: #000 !important;
+}
 .routerview {
   min-height: 100vh;
 }
@@ -47,5 +151,18 @@ export default {
   display: block;
   padding-top: 20px;
   padding-bottom: 20px;
+}
+
+@media (min-width: 1200px) {
+  .navbar-nav li {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+@media (min-width: 992px) {
+  .navbar-nav li {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
 }
 </style>

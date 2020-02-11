@@ -25,7 +25,7 @@ const router = new Router({
           name: 'Home',
           component: HelloWorld,
           meta: {
-            title: "Home"
+            title: "Home",
           }
         },
         {
