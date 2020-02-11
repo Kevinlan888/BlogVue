@@ -11,7 +11,7 @@ export const Login = async (userName, password) => {
         Password: password
     })
         .then((res) => {
-            if (res.status == 200) {
+            if (res && res.status == 200) {
                 return res.data;
             } else {
                 return null;
@@ -22,7 +22,7 @@ export const Login = async (userName, password) => {
 export const GetAllPostDescs = async () => {
     return await axios.get(GetPostUrl)
         .then((res) => {
-            if (res.status == 200) {
+            if (res && res.status == 200) {
                 return res.data;
             } else {
                 return null;
@@ -33,7 +33,7 @@ export const GetAllPostDescs = async () => {
 export const GetPost = async (slug) => {
     return await axios.get(GetPostUrl + "/" + slug).
         then(function (res) {
-            if (res.status == 200) {
+            if (res && res.status == 200) {
                 return res.data;
             } else {
                 return null;
@@ -44,7 +44,7 @@ export const GetPost = async (slug) => {
 export const AddOrUpdatePost = async (post) => {
     return await axios.put(AddPostUrl, post)
         .then((res => {
-            if (res.status == 200) {
+            if (res && res.status == 200) {
                 return res.data;
             } else {
                 return null;

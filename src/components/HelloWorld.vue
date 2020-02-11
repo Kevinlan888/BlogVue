@@ -1,11 +1,18 @@
 <template>
   <div class="wrapper">
     <div class="homeimg">
-      <div class="center">
-        <h1 class="titlemain">Kevin Lan</h1>
-        <h3
-          class="selfdescription"
-        >This is some test random words, used to describe myself, just for fun, welcome you to my personal site, hahah</h3>
+      <transition name="fade">
+        <div class="center" v-if="isLoaded">
+          <h1 class="titlemain">Kevin Lan</h1>
+          <h3
+            class="selfdescription"
+          >This is some test random words, used to describe myself, just for fun, welcome you to my personal site, hahah</h3>
+        </div>
+      </transition>
+      <div class="readmore">
+        <div class="readmorebox" v-on:click="readMore">
+          <h4 class="readmoretext">Read More</h4>
+        </div>
       </div>
     </div>
     <div class="recentact">
@@ -23,7 +30,17 @@
 export default {
   name: "HelloWorld",
   data() {
-    return {};
+    return {
+      isLoaded: false
+    };
+  },
+  mounted() {
+    this.isLoaded = true;
+  },
+  methods: {
+    readMore() {
+      window.scrollTo(0, 1000);
+    }
   }
 };
 </script>
@@ -59,6 +76,17 @@ export default {
   font-family: "DancingScript-Regular";
   color: #fff;
 }
+.readmorebox {
+  position: absolute;
+  cursor: pointer;
+  top: calc(100% - 126px);
+  left: calc(50% - 60px);
+}
+.readmoretext {
+  color: #fff;
+  font-size: 1.6rem;
+  font-weight: 500;
+}
 .recentact {
   background: #191919;
 }
@@ -67,12 +95,12 @@ export default {
   padding-bottom: 50px;
 }
 .worktitle {
-  font-family: 'Lobster-Regular';
+  font-family: "Lobster-Regular";
   font-weight: 500;
-  color: #fff; 
+  color: #fff;
 }
 .contentdescription {
   color: #fff;
-  height: 500px;;
+  height: 500px;
 }
 </style>
