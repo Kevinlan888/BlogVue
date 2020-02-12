@@ -6,12 +6,13 @@
           <h1 class="titlemain">Kevin Lan</h1>
           <h3
             class="selfdescription"
-          >This is some test random words, used to describe myself, just for fun, welcome you to my personal site, hahah</h3>
+          >Software engineer, use C#, Javascript, a bit of C/C++, Self-learning through research and development.</h3>
         </div>
       </transition>
       <div class="readmore">
         <div class="readmorebox" v-on:click="readMore">
           <h4 class="readmoretext">Read More</h4>
+          <div class="morepic"></div>
         </div>
       </div>
     </div>
@@ -49,7 +50,7 @@ export default {
 <style scoped>
 .homeimg {
   height: 100vh;
-  background: url("/static/login_bg.svg") no-repeat;
+  background: url("/static/custombg.jpg") no-repeat;
   background-size: cover;
   background-attachment: fixed;
   background-position: 50%;
@@ -71,6 +72,7 @@ export default {
 .selfdescription {
   font-size: 16px;
   line-height: 1.1;
+  margin-top: 10px;
   font-weight: 500;
   font-size: 1.75rem;
   font-family: "DancingScript-Regular";
@@ -87,6 +89,15 @@ export default {
   font-size: 1.6rem;
   font-weight: 500;
 }
+.morepic {
+  background: url("/static/more.svg");
+  background-size: cover;
+  height: 50px;
+  width: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5px;
+}
 .recentact {
   background: #191919;
 }
@@ -98,6 +109,9 @@ export default {
   font-family: "Lobster-Regular";
   font-weight: 500;
   color: #fff;
+}
+.content {
+  padding: 15px 0 15px;
 }
 .contentdescription {
   color: #fff;

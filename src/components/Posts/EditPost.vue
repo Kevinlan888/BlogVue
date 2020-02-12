@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div>
-      <div class="postinfo">
-        <el-row>
+    <div class="container">
+      <div>
+        <el-row class="inputrow">
           <el-col :span="12">
             <div class="grid-content bg-purple postinline">
               <span>标题:</span>
@@ -17,12 +17,11 @@
           </el-col>
         </el-row>
       </div>
+      <div class="displayarea">
+        <MarkdownPro v-model="markdown" />
+      </div>
+      <el-button class="btnConfirm" v-on:click="Confirm">确定</el-button>
     </div>
-    <div class="displayarea">
-      <MarkdownPro v-model="markdown" />
-    </div>
-
-    <el-button class="btnConfirm" v-on:click="Confirm">确定</el-button>
   </div>
 </template>
 
@@ -44,7 +43,7 @@ export default {
       slug: "",
       markdown: "# haha",
       content: "",
-      tags: ''
+      tags: ""
     };
   },
   watch: {
@@ -109,9 +108,13 @@ export default {
 };
 </script>
 
-<style>
-.postinfo {
-  width: 750px;
+<style scoped>
+.container {
+  padding-top: 126px;
+}
+.inputrow {
+  display: flex;
+  flex-direction: row;
 }
 .postinline {
   display: inline;
@@ -129,4 +132,14 @@ export default {
 .displayarea a {
   text-decoration-line: none;
 }
+
+@media (max-width: 728px) {
+  .inputrow {
+    flex-direction: column;
+  }
+  .inputrow .el-col {
+    margin-top: 10px;
+  }
+}
+
 </style>

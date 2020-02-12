@@ -1,6 +1,8 @@
 <template>
   <div>
-    <MarkdownPro v-model="text" :isPreview="true" />
+    <div class="container">
+      <MarkdownPro v-model="text" :isPreview="true" />
+    </div>
   </div>
 </template>
 
@@ -44,5 +46,8 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+.container {
+  padding-top: 126px;
+}
 </style>
