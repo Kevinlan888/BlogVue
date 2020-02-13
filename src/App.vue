@@ -117,4 +117,10 @@ html {
     max-width: 962px;
   }
 }
+@media (max-width: 520px) {
+  .container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
 </style>

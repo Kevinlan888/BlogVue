@@ -100,6 +100,7 @@ export default {
 }
 .recentact {
   background: #191919;
+  padding: 10px;
 }
 .recentact .container {
   padding-top: 50px;
