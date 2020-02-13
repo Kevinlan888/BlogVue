@@ -6,7 +6,7 @@
           <h1 class="titlemain">Kevin Lan</h1>
           <h3
             class="selfdescription"
-          >Software engineer, use C#, Javascript, a bit of C/C++, Self-learning through research and development.</h3>
+          >Software engineer, mainly use C#, a bit of C/C++, Self-learning through research and development.</h3>
         </div>
       </transition>
       <div class="readmore">
