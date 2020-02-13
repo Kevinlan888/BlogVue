@@ -37,7 +37,7 @@ export default {
 
 <style scoped>
 .wrapper {
-  padding: 136px;
+  padding-top: 136px;
 }
 .navbrand {
   color: #000;
