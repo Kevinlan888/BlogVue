@@ -37,7 +37,7 @@ export default {
     document.addEventListener("scroll", this.scroll);
   },
   destroyed() {
-    document.removeEventListener("scroll");
+    document.removeEventListener("scroll", this.scroll);
   },
   watch: {
     $route: function(route) {
