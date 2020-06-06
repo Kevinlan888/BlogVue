@@ -76,7 +76,6 @@ export default {
           alert("Login failed");
         }
       }
-      console.log(ret);
     },
     submitForm(formName) {
       this.$refs[formName].validate(valid => {

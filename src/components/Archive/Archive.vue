@@ -49,7 +49,7 @@ export default {
   padding: 20px 6px 20px 6px;
 }
 .postlist li:hover {
-  cursor: wait;
+  cursor: hand;
 }
 .postlist li div {
   padding-top: 20px;

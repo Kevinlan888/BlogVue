@@ -59,7 +59,7 @@ export default {
       }
     },
     scroll(e) {
-      if (window.scrollY >= 100) {
+      if (window.scrollY >= 60) {
         this.scrollCls = "headerscroll";
       } else {
         this.scrollCls = "";

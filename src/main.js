@@ -25,7 +25,6 @@ axios.interceptors.response.use((response) => {
 }, error => {
   if (error.response) {
     if (error.response.status == 401) {
-      console.log("401");
       store.commit('unset_User');
         router.push({ name: 'Login' });
     }
