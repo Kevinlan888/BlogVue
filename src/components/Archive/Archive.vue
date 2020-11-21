@@ -19,7 +19,6 @@ export default {
   name: "Archive",
   created: async function() {
     this.postData = await Request.GetAllPostDescs();
-    console.log(this.postData);
   },
   data() {
     return {
@@ -28,7 +27,6 @@ export default {
   },
   methods: {
     titleClick(slug) {
-      console.log("click " + slug);
       this.$router.push("/view/" + slug);
     }
   }
@@ -49,7 +47,7 @@ export default {
   padding: 20px 6px 20px 6px;
 }
 .postlist li:hover {
-  cursor: hand;
+  cursor: pointer;
 }
 .postlist li div {
   padding-top: 20px;

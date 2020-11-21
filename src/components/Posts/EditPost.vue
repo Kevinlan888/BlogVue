@@ -6,13 +6,23 @@
           <el-col :span="12">
             <div class="grid-content bg-purple postinline">
               <span>标题:</span>
-              <el-input class="postinput" placeholder="请输入标题" v-model="title" clearable></el-input>
+              <el-input
+                class="postinput"
+                placeholder="请输入标题"
+                v-model="title"
+                clearable
+              ></el-input>
             </div>
           </el-col>
           <el-col :span="12">
             <div class="grid-content bg-purple-light postinline">
               Slug:
-              <el-input class="postinput" placeholder="请输入Slug" v-model="slug" clearable></el-input>
+              <el-input
+                class="postinput"
+                placeholder="请输入Slug"
+                v-model="slug"
+                clearable
+              ></el-input>
             </div>
           </el-col>
         </el-row>
@@ -27,33 +37,47 @@
 
 <script>
 import { MarkdownPro } from "vue-meditor";
+import { Message } from "element-ui";
 const Request = require("@/utils/HttpUtil");
 export default {
   name: "EditPost",
   components: {
-    MarkdownPro
+    MarkdownPro,
   },
-  created: async function() {
+  created: async function () {
     await this.GetPost();
   },
-  data: function() {
+  data: function () {
     return {
       postId: null,
       title: "",
       slug: "",
       markdown: "# haha",
       content: "",
-      tags: ""
+      tags: "",
+      dirty: true,
     };
   },
   watch: {
-    title: function(newVal) {
+    title: function (newVal) {
       this.slug = this.slugify(newVal);
     },
-    $route: "GetPost"
+    $route: "GetPost",
+  },
+  beforeRouteLeave(to, from, next) {
+    if (this.dirty) {
+      const answer = window.confirm("Do you really want to leave?");
+      if (answer) {
+        next();
+      } else {
+        next(false);
+      }
+    } else {
+      next();
+    }
   },
   methods: {
-    slugify: function(text, ampersand = "and") {
+    slugify: function (text, ampersand = "and") {
       const a = "àáäâèéëêìíïîòóöôùúüûñçßÿỳýœæŕśńṕẃǵǹḿǘẍźḧ";
       const b = "aaaaeeeeiiiioooouuuuncsyyyoarsnpwgnmuxzh";
       const p = new RegExp(a.split("").join("|"), "g");
@@ -62,13 +86,13 @@ export default {
         .toString()
         .toLowerCase()
         .replace(/[\s_]+/g, "-")
-        .replace(p, c => b.charAt(a.indexOf(c)))
+        .replace(p, (c) => b.charAt(a.indexOf(c)))
         .replace(/&/g, `-${ampersand}-`)
         .replace(/[^\w-]+/g, "")
         .replace(/--+/g, "-")
         .replace(/^-+|-+$/g, "");
     },
-    ClearInput: function() {
+    ClearInput: function () {
       this.postId = null;
       this.title = "";
       this.slug = "";
@@ -76,13 +100,12 @@ export default {
       this.content = "";
       this.tags = "";
     },
-    GetPost: async function() {
+    GetPost: async function () {
       this.ClearInput();
       var slug = this.$route.params.slug;
       if (slug) {
         var post = await Request.GetPost(slug);
         if (post) {
-          console.log(post);
           this.postId = post.postId;
           this.title = post.title;
           this.slug = post.slug;
@@ -92,19 +115,37 @@ export default {
         }
       }
     },
-    Confirm: async function() {
+    Confirm: async function () {
       var postData = {
         postId: this.postId,
         title: this.title,
         slug: this.slug,
         markDown: this.markdown,
         content: this.content,
-        tags: this.tags
+        tags: this.tags,
       };
       var ret = await Request.AddOrUpdatePost(postData);
-      console.log(ret);
-    }
-  }
+      if (ret) {
+        if (ret.result) {
+          this.$message({
+            showClose: true,
+            message: "创建成功!",
+            type: "success",
+            onClose: (msg) => {
+              this.dirty = false;
+              this.$router.push({ name: "Home" });
+            },
+          });
+        } else {
+          this.$message({
+            showClose: true,
+            message: ret.msg,
+            type: "error",
+          });
+        }
+      }
+    },
+  },
 };
 </script>
 
@@ -133,6 +174,10 @@ export default {
   text-decoration-line: none;
 }
 
+.btnConfirm {
+  margin-top: 12px;
+}
+
 @media (max-width: 728px) {
   .inputrow {
     flex-direction: column;
@@ -141,5 +186,4 @@ export default {
     margin-top: 10px;
   }
 }
-
 </style>

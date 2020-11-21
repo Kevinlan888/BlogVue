@@ -82,7 +82,7 @@ export default {
         if (valid) {
           this.Login(this.loginForm.userName, this.loginForm.password);
         } else {
-          console.log("error");
+          //console.log("error");
           return false;
         }
       });

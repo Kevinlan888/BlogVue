@@ -14,7 +14,7 @@ import { Message } from "element-ui";
 export default {
   name: "App",
   created: function() {
-    const connection = new HubConnectionBuilder()
+    /*const connection = new HubConnectionBuilder()
       .withUrl("/chathub")
       .configureLogging(LogLevel.Information)
       .build();
@@ -26,8 +26,7 @@ export default {
         type: "success"
       });
     });
-    connection.start();
-    console.log("refresh");
+    connection.start();*/
     var token = localStorage.getItem("token");
     var name = localStorage.getItem("name");
     if (token) {

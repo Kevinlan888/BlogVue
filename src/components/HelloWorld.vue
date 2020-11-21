@@ -50,7 +50,7 @@ export default {
 <style scoped>
 .homeimg {
   height: 100vh;
-  background: url("/static/custombg.jpg") no-repeat;
+  background: url("/static/bg1.jpg") no-repeat;
   background-size: cover;
   background-attachment: fixed;
   background-position: 50%;
@@ -67,7 +67,9 @@ export default {
   font-weight: 500;
   line-height: 1.1;
   font-family: "Lobster-Regular";
-  color: #fff;
+  color: white;
+  text-shadow: 1px 1px #aaa;
+  cursor: default;
 }
 .selfdescription {
   font-size: 16px;
@@ -77,6 +79,7 @@ export default {
   font-size: 1.75rem;
   font-family: "DancingScript-Regular";
   color: #fff;
+  cursor: default;
 }
 .readmorebox {
   position: absolute;
@@ -86,7 +89,7 @@ export default {
 }
 .readmoretext {
   color: #fff;
-  font-size: 1.6rem;
+  font-size: 1.3rem;
   font-weight: 500;
 }
 .morepic {

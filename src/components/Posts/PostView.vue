@@ -50,4 +50,8 @@ export default {
 .container {
   padding-top: 156px;
 }
+
+.markdown.border {
+  border: 0 !important;
+}
 </style>

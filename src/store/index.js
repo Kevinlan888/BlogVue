@@ -12,7 +12,7 @@ const store = new Vuex.Store({
             localStorage.setItem('token', user.token);
             localStorage.setItem('name', user.name);
             state.user = user;
-            console.log(state);
+            //console.log(state);
         },
         unset_User: (state) => {
             localStorage.removeItem('token');
