@@ -51,6 +51,10 @@ export default {
   padding-top: 156px;
 }
 
+.markdown {
+  height: auto !important;
+}
+
 .markdown.border {
   border: 0 !important;
 }
