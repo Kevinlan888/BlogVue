@@ -4,9 +4,10 @@
       <transition name="fade">
         <div class="center" v-if="isLoaded">
           <h1 class="titlemain">Kevin Lan</h1>
-          <h3
-            class="selfdescription"
-          >Software engineer, mainly use C#, a bit of C/C++, Self-learning through research and development.</h3>
+          <h3 class="selfdescription">
+            Software engineer, mainly use C#, a bit of C/C++, Self-learning
+            through research and development.
+          </h3>
         </div>
       </transition>
       <div class="readmore">
@@ -20,7 +21,12 @@
       <div class="container">
         <h2 class="worktitle">My work</h2>
         <div class="content">
-          <h3 class="contentdescription">this is some random works I'm gonna explain, listen up!!!</h3>
+          <div class="blogCode">
+            <h3><a href="https://github.com/1455294568/KevinblogApi">My blog [Asp.net core API]</a></h3>
+          </div>
+          <div class="blogCode">
+            <h3><a href="https://github.com/1455294568/BlogVue">My blog [Vue]</a></h3>
+          </div>
         </div>
       </div>
     </div>
@@ -32,7 +38,7 @@ export default {
   name: "HelloWorld",
   data() {
     return {
-      isLoaded: false
+      isLoaded: false,
     };
   },
   mounted() {
@@ -41,8 +47,8 @@ export default {
   methods: {
     readMore() {
       window.scrollTo(0, 1000);
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -116,9 +122,14 @@ export default {
 }
 .content {
   padding: 15px 0 15px;
-}
-.contentdescription {
-  color: #fff;
   height: 500px;
+}
+.blogCode {
+  padding-bottom: 10px;
+}
+.blogCode h3 a {
+  color: #fff;
+  text-decoration-line: none;
+  font-family: 'Courier New', Courier, monospace;
 }
 </style>

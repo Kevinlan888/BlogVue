@@ -1,13 +1,23 @@
+let LoginUrl = "/api/users/login";  
+let GetPostUrl = "/api/posts/get";  
+let AddPostUrl = "/api/posts/AddPost"; 
 
-//    Test environment
-// const LoginUrl = "http://localhost:5001/api/users/login";  
-// const GetPostUrl = "http://localhost:5001/api/posts/get";  
-// const AddPostUrl = "http://localhost:5001/api/posts/AddPost"; 
+const isDebug_mode = process.env.NODE_ENV !== 'production';
+
+if (isDebug_mode)
+{
+    LoginUrl = "http://localhost:5001/api/users/login";  
+    GetPostUrl = "http://localhost:5001/api/posts/get";  
+    AddPostUrl = "http://localhost:5001/api/posts/AddPost"; 
+}
+else
+{
+    LoginUrl = "/api/users/login";  
+    GetPostUrl = "/api/posts/get";  
+    AddPostUrl = "/api/posts/AddPost"; 
+}
 
 
-const LoginUrl = "/api/users/login";  
-const GetPostUrl = "/api/posts/get";  
-const AddPostUrl = "/api/posts/AddPost"; 
 
 import axios from 'axios'
 import store from '@/store'

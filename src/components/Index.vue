@@ -89,6 +89,7 @@ export default {
 .headerscroll {
   height: 60px;
   background: #fff;
+  border-bottom: 1px solid lightblue;
 }
 .headerscroll a {
   color: #000 !important;
