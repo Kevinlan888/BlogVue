@@ -60,7 +60,7 @@ export default {
   padding-top: 156px;
 }
 .nameWrapper {
-  margin-left: 25px;
+  margin: 0px 16px 0px 16px;;
 }
 .nameWrapper p {
   font-family: "Courier New", Courier, monospace;
@@ -81,7 +81,7 @@ export default {
 .markdown.border {
   border: 0 !important;
 }
-@media (max-width: 376px) {
+@media (max-width: 420px) {
   .container {
     padding-top: 90px;
   }

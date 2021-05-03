@@ -7,11 +7,11 @@
         >
         <div class="navcontent">
           <ul class="navbar-nav nav-automar">
-            <li>
+            <!-- <li>
               <router-link :class="changeClrCls" to="/Recent"
                 >Recent</router-link
               >
-            </li>
+            </li> -->
             <li>
               <router-link :class="changeClrCls" to="/Archive"
                 >Archive</router-link
