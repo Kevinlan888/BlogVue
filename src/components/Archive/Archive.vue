@@ -79,7 +79,7 @@ export default {
     padding: 6px 26px 6px 16px;
   }
 }
-@media (max-width: 376px) {
+@media (max-width: 420px) {
   .wrapper {
     padding-top: 70px;
   }

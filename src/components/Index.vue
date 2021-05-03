@@ -178,7 +178,7 @@ export default {
     padding-right: 15px;
   }
 }
-@media (max-width: 376px) {
+@media (max-width: 420px) {
   .header {
     height: 60px;
   }
