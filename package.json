@@ -15,7 +15,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
-    "@aspnet/signalr": "^1.1.4",
+    "@microsoft/signalr": "^5.0.5",
     "element-ui": "^2.13.0",
     "vue": "^2.6.11",
     "vue-meditor": "^2.1.1",
@@ -24,9 +24,9 @@
   },
   "devDependencies": {
     "autoprefixer": "^7.2.6",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "babel-core": "^6.26.3",
-    "babel-eslint": "^8.2.6",
+    "@babel/eslint-parser": "^7.13.14",
     "babel-helper-vue-jsx-merge-props": "^2.0.3",
     "babel-jest": "^21.2.0",
     "babel-loader": "^7.1.5",
@@ -45,7 +45,7 @@
     "copy-webpack-plugin": "^4.6.0",
     "cross-spawn": "^5.1.0",
     "css-loader": "^0.28.11",
-    "eslint": "^6.0.0",
+    "eslint": "^7.5.0",
     "eslint-friendly-formatter": "^3.0.0",
     "eslint-loader": "^3.0.3",
     "eslint-plugin-vue": "^6.1.2",
@@ -57,7 +57,7 @@
     "jest-serializer-vue": "^0.3.0",
     "mini-css-extract-plugin": "^0.9.0",
     "nightwatch": "^0.9.21",
-    "node-notifier": "^5.4.3",
+    "node-notifier": "^8.0.1",
     "optimize-css-assets-webpack-plugin": "^3.2.1",
     "ora": "^1.4.0",
     "portfinder": "^1.0.25",
