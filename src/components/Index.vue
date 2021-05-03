@@ -88,8 +88,12 @@ export default {
 }
 .headerscroll {
   height: 60px;
-  background: #fff;
+  background-color: #fff;
   border-bottom: 1px solid lightblue;
+  -webkit-transition: background-color 0.3s ease-out;
+  -moz-transition: background-color 0.3s ease-out;
+  -o-transition: background-color 0.3s ease-out;
+  transition: background-color 0.3s ease-out
 }
 .headerscroll a {
   color: #000 !important;
@@ -164,6 +168,11 @@ export default {
   .navbar-nav li {
     padding-left: 15px;
     padding-right: 15px;
+  }
+}
+@media (max-width: 376px) {
+  .header {
+    height: 60px;
   }
 }
 </style>
