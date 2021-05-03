@@ -97,12 +97,13 @@ export default {
   color: #fff;
   font-size: 1.3rem;
   font-weight: 500;
+  font-family: 'Courier New', Courier, monospace;
 }
 .morepic {
   background: url("/static/more.svg");
   background-size: cover;
-  height: 50px;
-  width: 50px;
+  height: 36px;
+  width: 36px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 5px;

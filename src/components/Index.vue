@@ -2,14 +2,20 @@
   <div>
     <nav class="header nav-expand" :class="scrollCls">
       <div class="headerbox container">
-        <router-link to="/Home" class="navbrand" :class="changeClrCls">Kevin Lan</router-link>
+        <router-link to="/Home" class="navbrand" :class="changeClrCls"
+          >Kevin Lan</router-link
+        >
         <div class="navcontent">
           <ul class="navbar-nav nav-automar">
             <li>
-              <router-link :class="changeClrCls" to="/Recent">Recent</router-link>
+              <router-link :class="changeClrCls" to="/Recent"
+                >Recent</router-link
+              >
             </li>
             <li>
-              <router-link :class="changeClrCls" to="/Archive">Archive</router-link>
+              <router-link :class="changeClrCls" to="/Archive"
+                >Archive</router-link
+              >
             </li>
           </ul>
           <ul class="navbar-nav">
@@ -20,7 +26,9 @@
         </div>
       </div>
     </nav>
-    <router-view class="routerview"></router-view>
+    <transition name="fade">
+      <router-view class="routerview"></router-view>
+    </transition>
     <div class="footer">
       <div class="container">
         <span class="footersaying">Last, but not least</span>
@@ -40,14 +48,14 @@ export default {
     document.removeEventListener("scroll", this.scroll);
   },
   watch: {
-    $route: function(route) {
+    $route: function (route) {
       this.changeStyle(route);
-    }
+    },
   },
   data() {
     return {
       changeClrCls: "navcolorblack",
-      scrollCls: ""
+      scrollCls: "",
     };
   },
   methods: {
@@ -64,8 +72,8 @@ export default {
       } else {
         this.scrollCls = "";
       }
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -93,7 +101,7 @@ export default {
   -webkit-transition: background-color 0.3s ease-out;
   -moz-transition: background-color 0.3s ease-out;
   -o-transition: background-color 0.3s ease-out;
-  transition: background-color 0.3s ease-out
+  transition: background-color 0.3s ease-out;
 }
 .headerscroll a {
   color: #000 !important;

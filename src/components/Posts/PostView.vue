@@ -6,7 +6,7 @@
           <span></span>
           {{ title }}
           <span></span>
-          </p>
+        </p>
       </div>
       <div class="contentWrapper">
         <MarkdownPro v-model="text" :isPreview="true" />
@@ -63,16 +63,16 @@ export default {
   margin-left: 25px;
 }
 .nameWrapper p {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
   font-size: 18px;
 }
-.nameWrapper p span{
+.nameWrapper p span {
   display: inline-block;
   width: 16px;
   height: 10px;
   background: lightblue;
 }
-.contentWrapper{
+.contentWrapper {
   margin-top: 6px;
 }
 .markdown {
@@ -80,5 +80,10 @@ export default {
 }
 .markdown.border {
   border: 0 !important;
+}
+@media (max-width: 376px) {
+  .container {
+    padding-top: 90px;
+  }
 }
 </style>

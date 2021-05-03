@@ -2,12 +2,18 @@
   <div class="wrapper">
     <div class="container">
       <ul class="postlist">
-        <li v-for="desc in postData" :key="desc.postId" v-on:click="titleClick(desc.slug)">
-          <div>
-            <span>{{ desc.createDate.substring(0, desc.createDate.indexOf("T")) }}</span>
-            <h2>{{ desc.title }}</h2>
-          </div>
-        </li>
+          <li
+            v-for="desc in postData"
+            :key="desc.postId"
+            v-on:click="titleClick(desc.slug)"
+          >
+            <div>
+              <span>{{
+                desc.createDate.substring(0, desc.createDate.indexOf("T"))
+              }}</span>
+              <h2>{{ desc.title }}</h2>
+            </div>
+          </li>
       </ul>
     </div>
   </div>
@@ -17,19 +23,19 @@
 const Request = require("@/utils/HttpUtil");
 export default {
   name: "Archive",
-  created: async function() {
+  created: async function () {
     this.postData = await Request.GetAllPostDescs();
   },
   data() {
     return {
-      postData: []
+      postData: [],
     };
   },
   methods: {
     titleClick(slug) {
       this.$router.push("/view/" + slug);
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -67,5 +73,18 @@ export default {
   left: 0;
   bottom: 0;
   background: skyblue;
+}
+@media (max-width: 780px) {
+   .postlist li {
+    padding: 6px 26px 6px 16px;
+  }
+}
+@media (max-width: 376px) {
+  .wrapper {
+    padding-top: 70px;
+  }
+  .postlist li {
+    padding: 6px 16px 6px 16px;
+  }
 }
 </style>
