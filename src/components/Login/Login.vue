@@ -70,10 +70,21 @@ export default {
       if (ret) {
         if (ret.result) {
           this.set_User({ token: ret.msg, name: "" });
-          alert("Login successful");
-          this.$router.push({ name: "Home" });
+          this.$message({
+            showClose: true,
+            message: "登陆成功!",
+            type: "success",
+            onClose: (msg) => {
+              this.dirty = false;
+              this.$router.push({ name: "Home" });
+            },
+          });
         } else {
-          alert("Login failed");
+           this.$message({
+            showClose: true,
+            message: ret.msg,
+            type: "error",
+          });
         }
       }
     },
@@ -82,7 +93,6 @@ export default {
         if (valid) {
           this.Login(this.loginForm.userName, this.loginForm.password);
         } else {
-          //console.log("error");
           return false;
         }
       });

@@ -30,7 +30,9 @@
       <div class="displayarea">
         <MarkdownPro v-model="markdown" />
       </div>
-      <el-button class="btnConfirm" v-on:click="Confirm">确定</el-button>
+      <div class="confirmBtnWrapper">
+        <el-button class="btnConfirm" v-on:click="Confirm">确定</el-button>
+      </div>
     </div>
   </div>
 </template>
@@ -60,7 +62,9 @@ export default {
   },
   watch: {
     title: function (newVal) {
-      this.slug = this.slugify(newVal);
+      if (this.postId == null) {
+        this.slug = this.slugify(newVal);
+      }
     },
     $route: "GetPost",
   },
@@ -174,8 +178,9 @@ export default {
   text-decoration-line: none;
 }
 
-.btnConfirm {
+.confirmBtnWrapper {
   margin-top: 12px;
+  margin-bottom: 12px;
 }
 
 @media (max-width: 728px) {
