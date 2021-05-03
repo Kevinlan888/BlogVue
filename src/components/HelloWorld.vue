@@ -1,15 +1,13 @@
 <template>
   <div class="wrapper">
     <div class="homeimg">
-      <transition name="fade">
-        <div class="center" v-if="isLoaded">
-          <h1 class="titlemain">Kevin Lan</h1>
-          <h3 class="selfdescription">
-            Software engineer, mainly use C#, a bit of C/C++, Self-learning
-            through research and development.
-          </h3>
-        </div>
-      </transition>
+      <div class="center" v-if="isLoaded">
+        <h1 class="titlemain">Kevin Lan</h1>
+        <h3 class="selfdescription">
+          Software engineer, mainly use C#, a bit of C/C++, Self-learning
+          through research and development.
+        </h3>
+      </div>
       <div class="readmore">
         <div class="readmorebox" v-on:click="readMore">
           <h4 class="readmoretext">Read More</h4>
@@ -22,10 +20,16 @@
         <h2 class="worktitle">My work</h2>
         <div class="content">
           <div class="blogCode">
-            <h3><a href="https://github.com/1455294568/KevinblogApi">My blog [Asp.net core API]</a></h3>
+            <h3>
+              <a href="https://github.com/1455294568/KevinblogApi"
+                >My blog [Asp.net core API]</a
+              >
+            </h3>
           </div>
           <div class="blogCode">
-            <h3><a href="https://github.com/1455294568/BlogVue">My blog [Vue]</a></h3>
+            <h3>
+              <a href="https://github.com/1455294568/BlogVue">My blog [Vue]</a>
+            </h3>
           </div>
         </div>
       </div>
@@ -97,7 +101,7 @@ export default {
   color: #fff;
   font-size: 1.3rem;
   font-weight: 500;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
 }
 .morepic {
   background: url("/static/more.svg");
@@ -131,6 +135,6 @@ export default {
 .blogCode h3 a {
   color: #fff;
   text-decoration-line: none;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
 }
 </style>
