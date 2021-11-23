@@ -33,6 +33,9 @@
       <div class="container">
         <span class="footersaying">Last, but not least</span>
       </div>
+	  <div class="container">
+		<span class="icpInfo">© 2021 回忆太美好 <a href="https://beian.miit.gov.cn">赣ICP备2021010351号</a></span>
+	  </div>
     </div>
   </div>
 </template>
@@ -165,7 +168,19 @@ export default {
   padding-top: 20px;
   padding-bottom: 20px;
 }
-
+.icpInfo {
+  font-size: 0.6em;
+  color: #fff;
+  text-align: center;
+  display: block;
+}
+.icpInfo a {
+  color: #fff;
+  text-decoration-line: none;
+}
+.icpInfo a:hover {
+  text-decoration-line: underline;
+}
 @media (min-width: 1200px) {
   .navbar-nav li {
     padding-left: 20px;
