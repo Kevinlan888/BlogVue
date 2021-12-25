@@ -60,7 +60,7 @@ export default {
 <style scoped>
 .homeimg {
   height: 100vh;
-  background: url("/static/bg1.jpg") no-repeat;
+  background: url("/static/bg1.webp") no-repeat;
   background-size: cover;
   background-attachment: fixed;
   background-position: 50%;
